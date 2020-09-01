@@ -18,9 +18,9 @@ export default function ProductItemDetail({
 
   return (
     <Product>
-      <div>
+      <ImageWrapper>
         <img src={renderImage} alt="" srcset="" />
-      </div>
+      </ImageWrapper>
       <h5>{name}</h5>
       <p>{description}</p>
       <label for="product">Amount:</label>
@@ -42,4 +42,9 @@ const Product = styled.div`
     height: 100%;
     object-fit: cover;
   }
+`;
+
+const ImageWrapper = styled.div`
+  width: 300px;
+  height: 250px;
 `;
