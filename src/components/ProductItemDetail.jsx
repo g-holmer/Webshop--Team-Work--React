@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { useContext } from 'react'
+import { ProductContext } from '../contexts/ProductContext'
 
 // name={payload.name}
 // description={payload.description}
@@ -12,6 +14,9 @@ export default function ProductItemDetail({
   price,
   images,
 }) {
+
+  const { renderProductState, setRenderProductState } = useContext(ProductContext)
+
   const renderImage = images.map((image) => {
     return image.src.small;
   });
@@ -19,7 +24,7 @@ export default function ProductItemDetail({
 
 
   return (
-    <Product>
+    <Product onClick={ () => setRenderProductState(true)}>
       <ImageWrapper>
         <img src={renderImage} alt="" srcset="" />
       </ImageWrapper>
