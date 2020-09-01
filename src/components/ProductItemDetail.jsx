@@ -45,6 +45,5 @@ const Product = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  width: 300px;
   height: 250px;
 `;
