@@ -1,0 +1,59 @@
+import React, { useEffect, useState } from "react";
+import ProductItemDetail from "./ProductItemDetail";
+import styled from "styled-components";
+const baseURL = "https://mock-data-api.firebaseio.com/e-commerce";
+
+const productList = baseURL + "/products.json";
+const productDetail = baseURL + "/products/{productId}.json";
+const productReviews = baseURL + "/reviews/{productId}.json";
+const couponCodes = baseURL + "/couponCodes/{couponCodes}.json";
+const orders = baseURL + "/orders/{GroupNumber/GroupName}.json";
+
+export default function ProductList() {
+  const [productItems, setProductItemsList] = useState({});
+
+  function fetchProductList() {
+    const url = productList;
+
+    fetch(url)
+      .then((result) => result.json())
+      .then((data) => setProductItemsList(data));
+  }
+
+  useEffect(() => {
+    fetchProductList();
+  }, []);
+
+  return (
+    <ProductsWrapper>
+      <Products>
+        {productItems &&
+          Object.entries(productItems).map((product, index) => {
+            const key = product[0];
+
+            const payload = product[1];
+
+            return (
+              <ProductItemDetail
+                name={payload.name}
+                description={payload.description}
+                price={payload.price}
+                images={payload.images}
+              />
+            );
+          })}
+      </Products>
+    </ProductsWrapper>
+  );
+}
+
+const Products = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-auto-rows: repeat(100px, 1fr);
+  grid-auto-flow: column;
+`;
+const ProductsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
