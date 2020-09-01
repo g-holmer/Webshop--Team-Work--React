@@ -37,6 +37,7 @@ export default function ProductList() {
 
             return (
               <ProductItemDetail
+                key={index}
                 name={payload.name}
                 description={payload.description}
                 price={payload.price}

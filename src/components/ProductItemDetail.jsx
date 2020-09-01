@@ -26,11 +26,11 @@ export default function ProductItemDetail({
   return (
     <Product onClick={ () => setRenderProductState(true)}>
       <ImageWrapper>
-        <img src={renderImage} alt="" srcset="" />
+        <img src={renderImage} alt="" srcSet="" />
       </ImageWrapper>
       <h5>{name}</h5>
       <p>{description}</p>
-      <label for="product">Amount:</label>
+      <label htmlFor="product">Amount:</label>
       <select id="product" name="product">
         <option value="1">1</option>
         <option value="2">2</option>
