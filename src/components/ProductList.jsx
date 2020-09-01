@@ -24,6 +24,8 @@ export default function ProductList() {
     fetchProductList();
   }, []);
 
+
+
   return (
     <ProductsWrapper>
       <Products>

@@ -16,6 +16,8 @@ export default function ProductItemDetail({
     return image.src.small;
   });
 
+
+
   return (
     <Product>
       <ImageWrapper>
