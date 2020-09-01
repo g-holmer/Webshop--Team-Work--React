@@ -49,9 +49,9 @@ export default function ProductList() {
 
 const Products = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-auto-rows: repeat(100px, 1fr);
-  grid-auto-flow: column;
 `;
 const ProductsWrapper = styled.div`
   display: flex;
