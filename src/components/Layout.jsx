@@ -9,7 +9,7 @@ export default function Layout({ children }) {
       </header>
 
       <main>{children}</main>
-      
+
       <footer>
         <p>Made by Group 6</p>
       </footer>
