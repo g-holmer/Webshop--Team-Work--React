@@ -1,52 +1,57 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ProductItemDetail from "./ProductItemDetail";
+
 import styled from "styled-components";
+import { useContext } from "react";
+import { ProductContext } from "../contexts/ProductContext";
+
 const baseURL = "https://mock-data-api.firebaseio.com/e-commerce";
 
 const productList = baseURL + "/products.json";
-const productDetail = baseURL + "/products/{productId}.json";
-const productReviews = baseURL + "/reviews/{productId}.json";
-const couponCodes = baseURL + "/couponCodes/{couponCodes}.json";
-const orders = baseURL + "/orders/{GroupNumber/GroupName}.json";
+// const productDetail = baseURL + "/products/{productId}.json";
+// const productReviews = baseURL + "/reviews/{productId}.json";
+// const couponCodes = baseURL + "/couponCodes/{couponCodes}.json";
+// const orders = baseURL + "/orders/{GroupNumber/GroupName}.json";
 
 export default function ProductList() {
-  const [productItems, setProductItemsList] = useState({});
+  const { productItems, setProductItems } = useContext(ProductContext);
 
   function fetchProductList() {
     const url = productList;
 
     fetch(url)
       .then((result) => result.json())
-      .then((data) => setProductItemsList(data));
+      .then((data) => setProductItems(data));
   }
 
   useEffect(() => {
     fetchProductList();
+    // eslint-disable-next-line
   }, []);
 
+  let products = (
+    <Products>
+      {productItems &&
+        Object.entries(productItems).map((product, index) => {
+          //   const key = product[0];
 
+          const payload = product[1];
 
-  return (
-    <ProductsWrapper>
-      <Products>
-        {productItems &&
-          Object.entries(productItems).map((product, index) => {
-            const key = product[0];
-
-            const payload = product[1];
-
-            return (
-              <ProductItemDetail
-                name={payload.name}
-                description={payload.description}
-                price={payload.price}
-                images={payload.images}
-              />
-            );
-          })}
-      </Products>
-    </ProductsWrapper>
+          return (
+            <ProductItemDetail
+              key={index}
+              name={payload.name}
+              description={payload.description}
+              price={payload.price}
+              images={payload.images}
+              index={index}
+            />
+          );
+        })}
+    </Products>
   );
+
+  return <ProductsWrapper>{products}</ProductsWrapper>;
 }
 
 const Products = styled.div`

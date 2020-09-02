@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useContext } from 'react'
-import { ProductContext } from '../contexts/ProductContext'
-
+import { Link } from "react-router-dom";
 // name={payload.name}
 // description={payload.description}
 // price={payload.price}
@@ -13,24 +11,23 @@ export default function ProductItemDetail({
   description,
   price,
   images,
+  index,
 }) {
-
-  const { renderProductState, setRenderProductState } = useContext(ProductContext)
-
   const renderImage = images.map((image) => {
     return image.src.small;
   });
 
-
-
   return (
-    <Product onClick={ () => setRenderProductState(true)}>
-      <ImageWrapper>
-        <img src={renderImage} alt="" srcset="" />
-      </ImageWrapper>
-      <h5>{name}</h5>
+    <Product>
+      <Link to={`/product/${index}`}>
+        <ImageWrapper>
+          <img src={renderImage} alt="" srcSet="" />
+        </ImageWrapper>
+
+        <h5>{name}</h5>
+      </Link>
       <p>{description}</p>
-      <label for="product">Amount:</label>
+      <label htmlFor="product">Amount:</label>
       <select id="product" name="product">
         <option value="1">1</option>
         <option value="2">2</option>
