@@ -6,6 +6,7 @@ export default function ProductItemInfo({ match }) {
   //   const { productItems } = useContext(ProductContext);
   const productId = match && match.params.id;
   const [product, setProduct] = useState({});
+  const [productReviewsData, setProductReviewsData] = useState({});
 
   //   console.log(match);
   //   const name = productItems[Object.keys(productItems)[productIndex]].name;
@@ -16,6 +17,15 @@ export default function ProductItemInfo({ match }) {
   const productReviews = baseURL + `/reviews/${productId}.json`;
   const productDetail = baseURL + `/products/${productId}.json`;
 
+  function fetchProduct() {
+    const url = productDetail;
+
+    fetch(url)
+      .then((result) => result.json())
+      .then((data) => {
+        setProduct(data);
+      });
+  }
   function fetchProductReviews() {
     const url = productReviews;
 
@@ -24,19 +34,9 @@ export default function ProductItemInfo({ match }) {
       .then((data) => setProduct(data));
   }
 
-  function fetchProduct() {
-    const url = productDetail;
-
-    fetch(url)
-      .then((result) => result.json())
-      .then((data) =>  {
-          setProduct(data)
-          setProductReviews(data)
-        });
-  }
-
   useEffect(() => {
     fetchProduct();
+    fetchProductReviews();
     // eslint-disable-next-line
   }, []);
 
