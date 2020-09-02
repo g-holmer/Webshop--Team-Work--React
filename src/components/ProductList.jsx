@@ -33,7 +33,7 @@ export default function ProductList() {
     <Products>
       {productItems &&
         Object.entries(productItems).map((product, index) => {
-          //   const key = product[0];
+          const key = product[0];
 
           const payload = product[1];
 
@@ -44,7 +44,7 @@ export default function ProductList() {
               description={payload.description}
               price={payload.price}
               images={payload.images}
-              index={index}
+              index={key}
             />
           );
         })}
@@ -63,4 +63,5 @@ const Products = styled.div`
 const ProductsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 7%;
 `;

@@ -1,23 +1,53 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 
 export default function ProductItemInfo({ match }) {
-  const { productItems } = useContext(ProductContext);
-  const productIndex = match && match.params.id;
-  console.log(match);
-  const name = productItems[Object.keys(productItems)[productIndex]].name;
-  const description =
-    productItems[Object.keys(productItems)[productIndex]].description;
-  const images = productItems[Object.keys(productItems)[productIndex]].images;
+  //   const { productItems } = useContext(ProductContext);
+  const productId = match && match.params.id;
+  const [product, setProduct] = useState({});
 
-  console.log(productItems);
-  //   const productReviews = baseURL + "/reviews/{productId}.json";
+  //   console.log(match);
+  //   const name = productItems[Object.keys(productItems)[productIndex]].name;
+  //   const description =
+  //     productItems[Object.keys(productItems)[productIndex]].description;
+  //   const images = productItems[Object.keys(productItems)[productIndex]].images;
+  const baseURL = "https://mock-data-api.firebaseio.com/e-commerce";
+  const productReviews = baseURL + `/reviews/${productId}.json`;
+  const productDetail = baseURL + `/products/${productId}.json`;
+
+  function fetchProductReviews() {
+    const url = productReviews;
+
+    fetch(url)
+      .then((result) => result.json())
+      .then((data) => setProduct(data));
+  }
+
+  function fetchProduct() {
+    const url = productDetail;
+
+    fetch(url)
+      .then((result) => result.json())
+      .then((data) =>  {
+          setProduct(data)
+          setProductReviews(data)
+        });
+  }
+
+  useEffect(() => {
+    fetchProduct();
+    // eslint-disable-next-line
+  }, []);
+
+  const name = product.name;
+  const description = product.description;
+  const image = product.images && product.images[0].src.small;
 
   return (
     <div>
       <div>
-        <img src={images[0].src.small} alt="" srcSet="" />
+        <img src={image} alt="" srcSet="" />
       </div>
       <div>{name}</div>
       <div>{description}</div>
