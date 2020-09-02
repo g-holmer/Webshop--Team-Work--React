@@ -31,19 +31,36 @@ export default function ProductItemInfo({ match }) {
 
     fetch(url)
       .then((result) => result.json())
-      .then((data) => setProduct(data));
+      .then((data) => setProductReviewsData(data));
   }
 
   useEffect(() => {
     fetchProduct();
     fetchProductReviews();
-    // eslint-disable-next-line
   }, []);
 
   const name = product.name;
   const description = product.description;
   const image = product.images && product.images[0].src.small;
 
+  const renderProductReviews = Object.entries(productReviewsData).map(
+    (review) => {
+      const author = review[1].author.name;
+      const title = review[1].title;
+      const date = review[1].date;
+      const description = review[1].description;
+      const rating = review[1].rating;
+      return (
+        <div>
+          <li>{author}</li>
+          <li>{title}</li>
+          <li>{date}</li>
+          <li>{description}</li>
+          <li>{rating}</li>
+        </div>
+      );
+    }
+  );
   return (
     <div>
       <div>
@@ -52,6 +69,8 @@ export default function ProductItemInfo({ match }) {
       <div>{name}</div>
       <div>{description}</div>
       <button>Add to Cart</button>
+
+      {renderProductReviews}
     </div>
   );
 }
