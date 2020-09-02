@@ -17,7 +17,7 @@ export default function ProductItemInfo({ match }) {
   return (
     <div>
       <div>
-        <img src={images[0].src.small} alt="" srcSet="" />
+        <img src={images[0].src.small} alt="" srcset="" />
       </div>
       <div>{name}</div>
       <div>{description}</div>
