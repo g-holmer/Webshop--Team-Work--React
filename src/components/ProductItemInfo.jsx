@@ -43,8 +43,9 @@ export default function ProductItemInfo({ match }) {
   const description = product.description;
   const image = product.images && product.images[0].src.small;
 
-  const renderProductReviews = Object.entries(productReviewsData).map(
-    (review) => {
+  const renderProductReviews =
+    productReviewsData &&
+    Object.entries(productReviewsData).map((review) => {
       const author = review[1].author.name;
       const title = review[1].title;
       const date = review[1].date;
@@ -59,8 +60,7 @@ export default function ProductItemInfo({ match }) {
           <li>{rating}</li>
         </div>
       );
-    }
-  );
+    });
   return (
     <div>
       <div>
