@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import AddToCartButton from "./AddToCartButton";
 // name={payload.name}
 // description={payload.description}
 // price={payload.price}
@@ -35,7 +36,7 @@ export default function ProductItemDetail({
         <option value="4">4</option>
       </select>
       <p>Price: {price} dollar</p>
-      <button>Add to Cart</button>
+      <AddToCartButton  name={name} price={price} images={images} id={index}/>
     </Product>
   );
 }

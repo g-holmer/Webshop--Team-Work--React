@@ -8,6 +8,7 @@ import { ProductContext } from "./contexts/ProductContext";
 
 function App() {
   const [productItems, setProductItems] = useState({});
+  // const [productName, setProductName] = useState({});
 
   return (
     <Layout>

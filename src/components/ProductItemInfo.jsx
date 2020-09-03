@@ -1,8 +1,9 @@
 import React from "react";
 import { useContext, useState, useEffect } from "react";
 import { ProductContext } from "../contexts/ProductContext";
+import AddToCartButton from "./AddToCartButton";
 
-export default function ProductItemInfo({ match }) {
+export default function ProductItemInfo({ match, name, price, images }) {
   //   const { productItems } = useContext(ProductContext);
   const productId = match && match.params.id;
   const [product, setProduct] = useState({});
@@ -39,7 +40,7 @@ export default function ProductItemInfo({ match }) {
     fetchProductReviews();
   }, []);
 
-  const name = product.name;
+  // let name = product.name;
   const description = product.description;
   const image = product.images && product.images[0].src.small;
 
@@ -51,6 +52,7 @@ export default function ProductItemInfo({ match }) {
       const date = review[1].date;
       const description = review[1].description;
       const rating = review[1].rating;
+      
       return (
         <div>
           <li>{author}</li>
@@ -68,7 +70,7 @@ export default function ProductItemInfo({ match }) {
       </div>
       <div>{name}</div>
       <div>{description}</div>
-      <button>Add to Cart</button>
+      <AddToCartButton name={name} price={price} images={images}/>
 
       {renderProductReviews}
     </div>
