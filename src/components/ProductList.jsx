@@ -36,14 +36,13 @@ export default function ProductList() {
           const key = product[0];
 
           const payload = product[1];
-
           return (
             <ProductItemDetail
               key={index}
               name={payload.name}
               description={payload.description}
               price={payload.price}
-              images={payload.images}
+              images={payload.images[0].src.small}
               index={key}
             />
           );

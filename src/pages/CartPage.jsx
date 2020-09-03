@@ -20,7 +20,7 @@ export default function CartPage({}) {
     cartItems.map((item) => {
       const itemName = item.name;
       const itemPrice = item.price;
-      const itemImage = item.images[0].src.large;
+      const itemImage = item.images;
 
       return (
         <GetCartItems
