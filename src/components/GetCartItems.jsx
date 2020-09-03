@@ -28,11 +28,13 @@ const Img = styled.div`
 `;
 
 const ItemName = styled.p`
+  margin-left: 5px;
   display: flex;
   align-items: center;
 `;
 
 const ItemPrice = styled.p`
+  margin-left: 5px;
   display: flex;
   align-items: center;
 `;
