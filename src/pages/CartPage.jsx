@@ -4,6 +4,9 @@ import styled from "styled-components";
 export default function CartPage({}) {
   let [cartItems, setCartItems] = useState([]);
 
+  const setDeletedItem = () => {
+    getItemFromLocalStorage();
+  };
   const getItemFromLocalStorage = () => {
     const allProducts = [];
     for (let i = 0; i < localStorage.length; i++) {
@@ -29,6 +32,7 @@ export default function CartPage({}) {
           itemPrice={itemPrice}
           itemImage={itemImage}
           itemKey={key}
+          setDeletedItem={setDeletedItem}
         />
       );
     });

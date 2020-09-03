@@ -6,9 +6,11 @@ export default function GetCartItems({
   itemName,
   itemPrice,
   itemKey,
+  setDeletedItem,
 }) {
   function deleteHandler() {
     window.localStorage.removeItem(itemKey);
+    setDeletedItem();
   }
   return (
     <CartItem>

@@ -23,7 +23,7 @@ const Ul = styled.ul`
   justify-content: space-evenly;
   margin: 0;
   padding: 1em;
-  background-color:#55B1C6;
+  background-color: #55b1c6;
 
   a {
     text-decoration: none;
