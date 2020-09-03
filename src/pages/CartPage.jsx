@@ -18,16 +18,17 @@ export default function CartPage({}) {
 
   const productsToRender =
     cartItems &&
-    cartItems.map((item) => {
+    cartItems.map((item, index) => {
       const itemName = item.name;
       const itemPrice = item.price;
       const itemImage = item.images;
-
+      const key = window.localStorage.key(index);
       return (
         <GetCartItems
           itemName={itemName}
           itemPrice={itemPrice}
           itemImage={itemImage}
+          itemKey={key}
         />
       );
     });
@@ -38,7 +39,7 @@ export default function CartPage({}) {
 
   return (
     <Cart>
-      <h1 style={{alignSelf: 'center'}}>Your cart!</h1>
+      <h1 style={{ alignSelf: "center" }}>Your cart!</h1>
 
       <CartItems>{productsToRender}</CartItems>
     </Cart>

@@ -1,6 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-export default function GetCartItems({ itemImage, itemName, itemPrice }) {
+import DeleteButton from "./DeleteButton";
+export default function GetCartItems({
+  itemImage,
+  itemName,
+  itemPrice,
+  itemKey,
+}) {
+  function deleteHandler() {
+    window.localStorage.removeItem(itemKey);
+  }
   return (
     <CartItem>
       <Img>
@@ -8,13 +17,14 @@ export default function GetCartItems({ itemImage, itemName, itemPrice }) {
       </Img>
       <ItemName>{itemName}</ItemName>
       <ItemPrice>Price: {itemPrice} $</ItemPrice>
+      <DeleteButton deleteItem={deleteHandler} />
     </CartItem>
   );
 }
 const CartItem = styled.div`
   display: flex;
-  justify-content: space-evenly;
-  
+  justify-content: flex-start;
+
   margin: 30px;
   img {
     width: 100%;
