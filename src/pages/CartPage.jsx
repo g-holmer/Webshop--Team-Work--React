@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import GetCartItems from "../components/GetCartItems";
+import styled from "styled-components";
 export default function CartPage({}) {
   let [cartItems, setCartItems] = useState([]);
 
@@ -36,9 +37,19 @@ export default function CartPage({}) {
   }, []);
 
   return (
-    <div>
-      <h1>Your cart!</h1>
-      {productsToRender}
-    </div>
+    <Cart>
+      <h1 style={{alignSelf: 'center'}}>Your cart!</h1>
+
+      <CartItems>{productsToRender}</CartItems>
+    </Cart>
   );
 }
+const CartItems = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const Cart = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`;

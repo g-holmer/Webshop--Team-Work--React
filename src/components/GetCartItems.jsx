@@ -14,6 +14,7 @@ export default function GetCartItems({ itemImage, itemName, itemPrice }) {
 const CartItem = styled.div`
   display: flex;
   justify-content: space-evenly;
+  
   margin: 30px;
   img {
     width: 100%;
