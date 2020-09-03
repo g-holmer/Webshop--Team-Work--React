@@ -1,38 +1,39 @@
 import React, { useEffect, useState } from "react";
-
+import GetCartItems from "../components/GetCartItems";
 export default function CartPage({}) {
-
   let [cartItems, setCartItems] = useState([]);
 
   const getItemFromLocalStorage = () => {
     const allProducts = [];
     for (let i = 0; i < localStorage.length; i++) {
-      const productFromLS = JSON.parse(localStorage.getItem(localStorage.key(i)));
-    allProducts.push(productFromLS);
+      const productFromLS = JSON.parse(
+        localStorage.getItem(localStorage.key(i))
+      );
+      allProducts.push(productFromLS);
     }
 
     setCartItems(allProducts);
   };
 
-  const productsToRender = cartItems && cartItems.map((item) => {
-    console.log(cartItems);
-    const itemName = item.name;
-    const itemPrice = item.price;
-    const itemImage = item.images[0] && item.images[0].src.small;
+  const productsToRender =
+    cartItems &&
+    cartItems.map((item) => {
+      const itemName = item.name;
+      const itemPrice = item.price;
+      const itemImage = item.images[0].src.large;
 
-    return (
-      <div>
-      <ul>
-        <li>{itemName}</li>
-      </ul>
-      <div>{itemImage}</div>
-      </div>
-  )})
+      return (
+        <GetCartItems
+          itemName={itemName}
+          itemPrice={itemPrice}
+          itemImage={itemImage}
+        />
+      );
+    });
 
-
-useEffect(() => {
-  getItemFromLocalStorage()
-}, [])
+  useEffect(() => {
+    getItemFromLocalStorage();
+  }, []);
 
   return (
     <div>
