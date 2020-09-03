@@ -6,13 +6,15 @@ export default function GetCartItems({ itemImage, itemName, itemPrice }) {
       <Img>
         <img src={itemImage} alt="" srcSet="" />
       </Img>
-      <p>{itemName}</p>
-      <p>Price: {itemPrice} $</p>
+      <ItemName>{itemName}</ItemName>
+      <ItemPrice>Price: {itemPrice} $</ItemPrice>
     </CartItem>
   );
 }
 const CartItem = styled.div`
   display: flex;
+  justify-content: space-evenly;
+  margin: 30px;
   img {
     width: 100%;
     height: 100%;
@@ -23,4 +25,14 @@ const CartItem = styled.div`
 const Img = styled.div`
   width: 170px;
   height: 170px;
+`;
+
+const ItemName = styled.p`
+  display: flex;
+  align-items: center;
+`;
+
+const ItemPrice = styled.p`
+  display: flex;
+  align-items: center;
 `;
