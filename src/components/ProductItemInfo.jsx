@@ -2,6 +2,7 @@ import React from "react";
 import { useContext, useState, useEffect } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import AddToCartButton from "./AddToCartButton";
+import styled from "styled-components";
 
 export default function ProductItemInfo({ match, name, price, images }) {
   //   const { productItems } = useContext(ProductContext);
@@ -54,25 +55,87 @@ export default function ProductItemInfo({ match, name, price, images }) {
       const rating = review[1].rating;
       
       return (
-        <div>
+        <Reviewwrapper>
           <li>{author}</li>
           <li>{title}</li>
           <li>{date}</li>
           <li>{description}</li>
           <li>{rating}</li>
-        </div>
+          </Reviewwrapper>
       );
     });
   return (
-    <div>
+    <Product>
+    <ProductWrapper>
       <div>
         <img src={image} alt="" srcSet="" />
       </div>
+
+      <ProductInfoWrapper>
       <div>{name}</div>
       <div>{description}</div>
       <AddToCartButton name={name} price={price} images={images}/>
 
+      </ProductInfoWrapper>
+    </ProductWrapper>
       {renderProductReviews}
-    </div>
+      </Product>
+
   );
 }
+
+const Product = styled.div`
+  display:grid;
+  grid-template-rows: 1fr, 1fr;
+  margin:1rem;
+
+`;
+
+const ProductWrapper = styled.div`
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin:1rem;
+
+  h2 {
+    margin:2em;
+    text-align: center;
+  }
+
+  p {
+      margin:2em;
+  }
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: 600px;
+    max-width: 500px;
+
+  }
+`;
+
+const ProductInfoWrapper = styled.div`
+  display:grid;
+  flex-direction: colum;
+
+`;
+
+
+
+const Reviewwrapper = styled.div`
+display:flex;
+flex-direction:row; 
+margin-left: 1em;
+
+li {
+    list-style-type: none;
+    padding: 1em;
+    background: #cce5ff;
+    margin-bottom:1em;
+  }
+
+  
+`;
+
+
