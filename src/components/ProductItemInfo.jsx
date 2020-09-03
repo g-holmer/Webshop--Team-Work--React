@@ -75,6 +75,7 @@ export default function ProductItemInfo({ match }) {
       <ProductInfoWrapper>
       <div>{title}</div>
       <div>{description}</div>
+      <div>Price: {productPrice} $</div>
       <AddToCartButton name={title} price={productPrice} images={image} id={productId}/>
 
       </ProductInfoWrapper>

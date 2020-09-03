@@ -35,7 +35,7 @@ export default function ProductItemDetail({
         <option value="3">3</option>
         <option value="4">4</option>
       </select>
-      <p>Price: {price} dollar</p>
+      <p>Price: {price} $</p>
       <AddToCartButton  name={name} price={price} images={images} id={index}/>
     </Product>
   );
