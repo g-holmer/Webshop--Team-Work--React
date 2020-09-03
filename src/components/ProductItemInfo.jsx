@@ -4,7 +4,7 @@ import { ProductContext } from "../contexts/ProductContext";
 import AddToCartButton from "./AddToCartButton";
 import styled from "styled-components";
 
-export default function ProductItemInfo({ match, name, price, images }) {
+export default function ProductItemInfo({ match }) {
   //   const { productItems } = useContext(ProductContext);
   const productId = match && match.params.id;
   const [product, setProduct] = useState({});
@@ -41,7 +41,8 @@ export default function ProductItemInfo({ match, name, price, images }) {
     fetchProductReviews();
   }, []);
 
-  // let name = product.name;
+  let title = product.name;
+  let productPrice = product.price;
   const description = product.description;
   const image = product.images && product.images[0].src.small;
 
@@ -72,9 +73,9 @@ export default function ProductItemInfo({ match, name, price, images }) {
       </div>
 
       <ProductInfoWrapper>
-      <div>{name}</div>
+      <div>{title}</div>
       <div>{description}</div>
-      <AddToCartButton name={name} price={price} images={images}/>
+      <AddToCartButton name={title} price={productPrice} images={image} id={productId}/>
 
       </ProductInfoWrapper>
     </ProductWrapper>
