@@ -42,19 +42,29 @@ export default function CartPage() {
       );
     });
 
-  let sum = 0;
-  for (let i = 0; i < cartItems.length; i++) {
-    sum += cartItems[i].price * cartItems[i].amount;
+  function getTotalSum() {
+    let sum = 0;
+    for (let i = 0; i < cartItems.length; i++) {
+      sum += cartItems[i].price * cartItems[i].amount;
+    }
+    return (
+      <div>
+        <p>Total: {sum} $</p>
+      </div>
+    );
   }
 
   useEffect(() => {
     getItemFromLocalStorage();
   }, []);
   let renderOrder = null;
+  let renderSum = null;
   if (localStorage.length) {
+    renderSum = getTotalSum();
     renderOrder = <Order />;
   } else {
     renderOrder = "";
+    renderSum = "";
   }
   return (
     <Cart>
@@ -62,7 +72,7 @@ export default function CartPage() {
 
       <CartItems>{productsToRender}</CartItems>
 
-      <p>Total: {sum} $</p>
+      {renderSum}
       {renderOrder}
     </Cart>
   );
