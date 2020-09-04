@@ -23,7 +23,7 @@ export default function GetCartItems({
         </Img>
         <ItemName>{itemName}</ItemName>
         <ItemPrice>Price: {itemPrice} $</ItemPrice>
-        <p>Amount: {itemAmount}</p>
+        <ItemAmount>Amount: {itemAmount}</ItemAmount>
         <DeleteButton deleteItem={deleteHandler} />
       </CartItem>
     </>
@@ -31,9 +31,10 @@ export default function GetCartItems({
 }
 const CartItem = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  flex-wrap:wrap;
 
-  margin: 30px;
+  margin: 10px 20px 5px 20px;
   img {
     width: 100%;
     height: 100%;
@@ -54,6 +55,12 @@ const ItemName = styled.p`
 
 const ItemPrice = styled.p`
   margin-left: 5px;
+  display: flex;
+  align-items: center;
+`;
+
+const ItemAmount = styled.p`
+margin-left: 5px;
   display: flex;
   align-items: center;
 `;

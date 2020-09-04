@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 export default function AddToCartButton({ name, price, images, id, amount }) {
   const addToLocalStorage = () => {
@@ -15,7 +16,16 @@ export default function AddToCartButton({ name, price, images, id, amount }) {
 
   return (
     <div>
-      <button onClick={addToLocalStorage}>Add to Cart</button>
+      <Button onClick={addToLocalStorage}>Add to Cart</Button>
     </div>
   );
 }
+
+const Button = styled.button`
+background-color: orange;
+border: none;
+padding: 16px 32px;
+font-size: 16px;
+border-radius: 12px;
+margin:1em;
+`;

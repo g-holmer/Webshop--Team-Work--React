@@ -58,9 +58,9 @@ export default function ProductItemInfo({ match }) {
 
       return (
         <Reviewwrapper>
+            <li>{date}</li>
           <li>{author}</li>
           <li>{title}</li>
-          <li>{date}</li>
           <li>{description}</li>
           <li>{rating}</li>
         </Reviewwrapper>
@@ -82,6 +82,7 @@ export default function ProductItemInfo({ match }) {
             price={productPrice}
             images={image}
             id={productId}
+            amount ={1}
           />
         </ProductInfoWrapper>
       </ProductWrapper>
@@ -131,8 +132,9 @@ const Reviewwrapper = styled.div`
 
   li {
     list-style-type: none;
-    padding: 1em;
+    padding: 10px;
     background: #cce5ff;
     margin-bottom: 1em;
   }
 `;
+

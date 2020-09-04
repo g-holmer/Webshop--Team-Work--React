@@ -48,9 +48,9 @@ export default function CartPage() {
       sum += cartItems[i].price * cartItems[i].amount;
     }
     return (
-      <div>
+      <Sum>
         <p>Total: {sum} $</p>
-      </div>
+      </Sum>
     );
   }
 
@@ -80,9 +80,23 @@ export default function CartPage() {
 const CartItems = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap:wrap;
+
 `;
 const Cart = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  flex-wrap:wrap;
+`;
+
+const Sum = styled.div`
+  display: flex;
+  justify-content: center;
+  p{
+      background-color:#f2f2f2;
+      border-radius:50px
+      text-transform: uppercase;
+      font-size:30px
+  }
 `;
