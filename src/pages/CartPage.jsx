@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import GetCartItems from "../components/GetCartItems";
+import Order from "../components/Order/Order";
 import styled from "styled-components";
 
 export default function CartPage() {
@@ -27,7 +28,6 @@ export default function CartPage() {
       const itemPrice = item.price;
       const itemImage = item.images;
       const key = window.localStorage.key(index);
-
       return (
         <GetCartItems
           itemName={itemName}
@@ -53,6 +53,7 @@ export default function CartPage() {
       <h1 style={{ alignSelf: "center" }}>Your cart!</h1>
 
       <CartItems>{productsToRender}</CartItems>
+      <Order />
 
       <p>Total: {sum} $</p>
     </Cart>
