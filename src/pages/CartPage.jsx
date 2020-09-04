@@ -26,12 +26,15 @@ export default function CartPage() {
     cartItems.map((item, index) => {
       const itemName = item.name;
       const itemPrice = item.price;
+      const itemAmount = item.amount
       const itemImage = item.images;
       const key = window.localStorage.key(index);
+      console.log(itemAmount);
       return (
         <GetCartItems
           itemName={itemName}
           itemPrice={itemPrice}
+          itemAmount ={itemAmount}
           itemImage={itemImage}
           itemKey={key}
           setDeletedItem={setDeletedItem}
@@ -41,7 +44,7 @@ export default function CartPage() {
 
   let sum = 0;
   for (let i = 0; i < cartItems.length; i++) {
-    sum += cartItems[i].price;
+    sum += cartItems[i].price * cartItems[i].amount;
   }
 
   useEffect(() => {
