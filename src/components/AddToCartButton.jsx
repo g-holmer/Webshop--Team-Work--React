@@ -22,10 +22,11 @@ export default function AddToCartButton({ name, price, images, id, amount }) {
 }
 
 const Button = styled.button`
-background-color: orange;
-border: none;
-padding: 16px 32px;
-font-size: 16px;
-border-radius: 12px;
-margin:1em;
+  background-color: orange;
+  border: none;
+  padding: 16px 32px;
+  font-size: 16px;
+  border-radius: 12px;
+  margin: 1em;
+  cursor: pointer;
 `;

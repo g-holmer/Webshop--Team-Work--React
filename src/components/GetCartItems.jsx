@@ -32,9 +32,9 @@ export default function GetCartItems({
 const CartItem = styled.div`
   display: flex;
   justify-content: space-between;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 
-  margin: 10px 20px 5px 20px;
+  margin: 10px 5% 5px 5%;
   img {
     width: 100%;
     height: 100%;
@@ -43,8 +43,8 @@ const CartItem = styled.div`
 `;
 
 const Img = styled.div`
-  width: 170px;
-  height: 170px;
+  max-width: 170px;
+  max-height: 170px;
 `;
 
 const ItemName = styled.p`
@@ -60,7 +60,7 @@ const ItemPrice = styled.p`
 `;
 
 const ItemAmount = styled.p`
-margin-left: 5px;
+  margin-left: 5px;
   display: flex;
   align-items: center;
 `;
