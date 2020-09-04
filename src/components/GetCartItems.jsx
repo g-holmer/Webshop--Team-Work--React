@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import DeleteButton from "./DeleteButton";
-import Order from "./Order/Order";
 
 export default function GetCartItems({
   itemImage,
@@ -25,7 +24,6 @@ export default function GetCartItems({
         <ItemPrice>Price: {itemPrice} $</ItemPrice>
         <DeleteButton deleteItem={deleteHandler} />
       </CartItem>
-      <Order id={itemKey} />
     </>
   );
 }
