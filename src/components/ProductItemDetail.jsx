@@ -14,6 +14,7 @@ export default function ProductItemDetail({
   images,
   index,
 }) {
+  
   const [amount, setAmountValue] = useState(1);
 
   const selectFieldHandler = (event) => {

@@ -6,6 +6,7 @@ export default function GetCartItems({
   itemImage,
   itemName,
   itemPrice,
+  itemAmount,
   itemKey,
   setDeletedItem,
 }) {
@@ -22,6 +23,7 @@ export default function GetCartItems({
         </Img>
         <ItemName>{itemName}</ItemName>
         <ItemPrice>Price: {itemPrice} $</ItemPrice>
+        <p>Amount: {itemAmount}</p>
         <DeleteButton deleteItem={deleteHandler} />
       </CartItem>
     </>
