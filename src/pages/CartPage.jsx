@@ -20,13 +20,14 @@ export default function CartPage() {
     setCartItems(allProducts);
   };
 
+
   const productsToRender =
-    cartItems &&
-    cartItems.map((item, index) => {
-      const itemName = item.name;
-      const itemPrice = item.price;
-      const itemImage = item.images;
-      const key = window.localStorage.key(index);
+  cartItems &&
+  cartItems.map((item, index) => {
+    const itemName = item.name;
+    const itemPrice = item.price;
+    const itemImage = item.images;
+    const key = window.localStorage.key(index);
       return (
         <GetCartItems
           itemName={itemName}
@@ -37,6 +38,19 @@ export default function CartPage() {
         />
       );
     });
+    
+    let totalPrice = 
+    cartItems &&
+    cartItems.map((item) => {
+      const itemPrice = item.price
+      let sum = 0;
+      for (let i = 0; i < itemPrice.length; i++) {
+        sum = sum + sum[i]
+      }
+      return (
+        sum
+      )
+    })
 
   useEffect(() => {
     getItemFromLocalStorage();
@@ -47,6 +61,9 @@ export default function CartPage() {
       <h1 style={{ alignSelf: "center" }}>Your cart!</h1>
 
       <CartItems>{productsToRender}</CartItems>
+
+      <p>Total: {totalPrice}</p>
+  
     </Cart>
   );
 }
