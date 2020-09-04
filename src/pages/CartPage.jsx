@@ -26,7 +26,7 @@ export default function CartPage() {
     cartItems.map((item, index) => {
       const itemName = item.name;
       const itemPrice = item.price;
-      const itemAmount = item.amount
+      const itemAmount = item.amount;
       const itemImage = item.images;
       const key = window.localStorage.key(index);
       console.log(itemAmount);
@@ -34,7 +34,7 @@ export default function CartPage() {
         <GetCartItems
           itemName={itemName}
           itemPrice={itemPrice}
-          itemAmount ={itemAmount}
+          itemAmount={itemAmount}
           itemImage={itemImage}
           itemKey={key}
           setDeletedItem={setDeletedItem}
@@ -50,13 +50,18 @@ export default function CartPage() {
   useEffect(() => {
     getItemFromLocalStorage();
   }, []);
-
+  let renderOrder = null;
+  if (localStorage.length) {
+    renderOrder = <Order />;
+  } else {
+    renderOrder = "";
+  }
   return (
     <Cart>
       <h1 style={{ alignSelf: "center" }}>Your cart!</h1>
 
       <CartItems>{productsToRender}</CartItems>
-      <Order />
+      {renderOrder}
 
       <p>Total: {sum} $</p>
     </Cart>
