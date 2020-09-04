@@ -50,7 +50,7 @@ export default function CartPage() {
       <CartItems>{productsToRender}</CartItems>
       <Order />
 
-      <p>Total: {getTotalSum()}</p>
+      <p>Total: {}</p>
     </Cart>
   );
 }
