@@ -39,6 +39,11 @@ export default function CartPage() {
       );
     });
 
+  let sum = 0;
+  for (let i = 0; i < cartItems.length; i++) {
+    sum += cartItems[i].price;
+  }
+
   useEffect(() => {
     getItemFromLocalStorage();
   }, []);
@@ -50,7 +55,7 @@ export default function CartPage() {
       <CartItems>{productsToRender}</CartItems>
       <Order />
 
-      <p>Total: {}</p>
+      <p>Total: {sum} $</p>
     </Cart>
   );
 }
