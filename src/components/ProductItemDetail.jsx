@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import AddToCartButton from "./AddToCartButton";
@@ -14,6 +14,11 @@ export default function ProductItemDetail({
   images,
   index,
 }) {
+  const [amount, setAmountValue] = useState(1);
+
+  const selectFieldHandler = (event) => {
+    setAmountValue(event.target.value);
+  };
   return (
     <Product>
       <Link to={`/product/${index}`}>
@@ -25,14 +30,20 @@ export default function ProductItemDetail({
       </Link>
       <p>{description}</p>
       <label htmlFor="product">Amount:</label>
-      <select id="product" name="product">
+      <select onChange={selectFieldHandler} id="product" name="product">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
       </select>
       <p>Price: {price} $</p>
-      <AddToCartButton name={name} price={price} images={images} id={index} />
+      <AddToCartButton
+        name={name}
+        amount={amount}
+        price={price}
+        images={images}
+        id={index}
+      />
     </Product>
   );
 }

@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import DeleteButton from "./DeleteButton";
+import Order from "./Order/Order";
+
 export default function GetCartItems({
   itemImage,
   itemName,
@@ -12,15 +14,19 @@ export default function GetCartItems({
     window.localStorage.removeItem(itemKey);
     setDeletedItem();
   }
+
   return (
-    <CartItem>
-      <Img>
-        <img src={itemImage} alt="" srcSet="" />
-      </Img>
-      <ItemName>{itemName}</ItemName>
-      <ItemPrice>Price: {itemPrice} $</ItemPrice>
-      <DeleteButton deleteItem={deleteHandler} />
-    </CartItem>
+    <>
+      <CartItem>
+        <Img>
+          <img src={itemImage} alt="" srcSet="" />
+        </Img>
+        <ItemName>{itemName}</ItemName>
+        <ItemPrice>Price: {itemPrice} $</ItemPrice>
+        <DeleteButton deleteItem={deleteHandler} />
+      </CartItem>
+      <Order id={itemKey} />
+    </>
   );
 }
 const CartItem = styled.div`

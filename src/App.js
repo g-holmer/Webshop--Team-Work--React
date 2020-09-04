@@ -4,7 +4,8 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import ProductItemInfo from "./components/ProductItemInfo";
 import CartPage from "./pages/CartPage";
-import { ProductContext } from "./contexts/ProductContext";
+import { OrderContext } from "./contexts/OrderContext";
+import OrderConfirmation from "./components/Order/OrderConfirmation";
 
 function App() {
   const [productItems, setProductItems] = useState({});
@@ -12,7 +13,7 @@ function App() {
 
   return (
     <Layout>
-      <ProductContext.Provider
+      <OrderContext.Provider
         value={{
           productItems,
           setProductItems,
@@ -22,8 +23,13 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/cart" component={CartPage} />
           <Route path="/product/:id" exact component={ProductItemInfo} />
+          <Route
+            path="/order/:id/name/:name"
+            exact
+            component={OrderConfirmation}
+          />
         </Switch>
-      </ProductContext.Provider>
+      </OrderContext.Provider>
     </Layout>
   );
 }

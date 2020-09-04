@@ -3,7 +3,6 @@ import Nav from "./Nav";
 import styled from "styled-components";
 
 export default function Layout({ children }) {
-
   return (
     <div>
       <header>
@@ -12,9 +11,7 @@ export default function Layout({ children }) {
 
       <main>{children}</main>
 
-      <Footer>
-        <p>Made by Group 6</p>
-        </Footer>
+      <Footer>Made by Group 6</Footer>
     </div>
   );
 }
@@ -25,5 +22,5 @@ const Footer = styled.p`
   justify-content: space-evenly;
   margin: 0;
   padding: 0.5em;
-  background-color:#55B1C6;
+  background-color: #55b1c6;
 `;

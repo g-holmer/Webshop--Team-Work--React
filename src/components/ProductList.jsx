@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import ProductItemDetail from "./ProductItemDetail";
 
 import styled from "styled-components";
-import { useContext } from "react";
-import { ProductContext } from "../contexts/ProductContext";
+import { useState } from "react";
 
 const baseURL = "https://mock-data-api.firebaseio.com/e-commerce";
 
@@ -11,10 +10,9 @@ const productList = baseURL + "/products.json";
 // const productDetail = baseURL + "/products/{productId}.json";
 // const productReviews = baseURL + "/reviews/{productId}.json";
 // const couponCodes = baseURL + "/couponCodes/{couponCodes}.json";
-// const orders = baseURL + "/orders/{GroupNumber/GroupName}.json";
 
 export default function ProductList() {
-  const { productItems, setProductItems } = useContext(ProductContext);
+  const [productItems, setProductItems] = useState({});
 
   function fetchProductList() {
     const url = productList;
@@ -26,6 +24,7 @@ export default function ProductList() {
 
   useEffect(() => {
     fetchProductList();
+
     // eslint-disable-next-line
   }, []);
 

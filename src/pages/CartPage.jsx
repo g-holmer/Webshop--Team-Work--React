@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import GetCartItems from "../components/GetCartItems";
 import styled from "styled-components";
-export default function CartPage({}) {
+
+export default function CartPage() {
   let [cartItems, setCartItems] = useState([]);
 
   const setDeletedItem = () => {

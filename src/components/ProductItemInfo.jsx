@@ -1,6 +1,6 @@
 import React from "react";
-import { useContext, useState, useEffect } from "react";
-import { ProductContext } from "../contexts/ProductContext";
+import { useState, useEffect } from "react";
+
 import AddToCartButton from "./AddToCartButton";
 import styled from "styled-components";
 
@@ -39,6 +39,7 @@ export default function ProductItemInfo({ match }) {
   useEffect(() => {
     fetchProduct();
     fetchProductReviews();
+    // eslint-disable-next-line
   }, []);
 
   let title = product.name;
