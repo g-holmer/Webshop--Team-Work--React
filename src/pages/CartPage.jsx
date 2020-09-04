@@ -56,9 +56,9 @@ export default function CartPage() {
       <h1 style={{ alignSelf: "center" }}>Your cart!</h1>
 
       <CartItems>{productsToRender}</CartItems>
+      <p>Total: {sum} $</p>
       <Order />
 
-      <p>Total: {sum} $</p>
     </Cart>
   );
 }
