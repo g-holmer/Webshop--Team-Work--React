@@ -66,12 +66,19 @@ export default function CartPage() {
     renderOrder = "";
     renderSum = "";
   }
+
+  function deleteAllItemsHandler() {
+      localStorage.clear()
+      setDeletedItem();
+      
+  }
+
   return (
     <Cart>
       <h1 style={{ alignSelf: "center" }}>Your cart!</h1>
 
       <CartItems>{productsToRender}</CartItems>
-
+<button onClick = {deleteAllItemsHandler}>Delete All items</button>
       {renderSum}
       {renderOrder}
     </Cart>
