@@ -42,31 +42,33 @@ export default function CartPage() {
       );
     });
 
+
   function getTotalSum() {
     let sum = 0;
     for (let i = 0; i < cartItems.length; i++) {
       sum += cartItems[i].price * cartItems[i].amount;
     }
-    return (
-      <Sum>
-        <p>Total: {sum} $</p>
-      </Sum>
-    );
+    return sum;
   }
 
   useEffect(() => {
     getItemFromLocalStorage();
   }, []);
-  
+
   let renderOrder = null;
-  let renderSum = null;   
+  let renderSum = null;
   let renderDeleteAllButton = null;
 
   if (localStorage.length) {
-    renderSum = getTotalSum();
+    renderSum = (
+      <Sum>
+        <p>Total: {getTotalSum()} $</p>
+      </Sum>
+    );
     renderOrder = <Order />;
-    renderDeleteAllButton = <button onClick = {deleteAllItemsHandler}>Delete All items</button>
-    ;
+    renderDeleteAllButton = (
+      <button onClick={deleteAllItemsHandler}>Delete All items</button>
+    );
   } else {
     renderOrder = "";
     renderSum = "";
@@ -74,9 +76,8 @@ export default function CartPage() {
   }
 
   function deleteAllItemsHandler() {
-      localStorage.clear()
-      setDeletedItem();
-      
+    localStorage.clear();
+    setDeletedItem();
   }
 
   return (
