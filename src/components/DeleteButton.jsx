@@ -6,9 +6,9 @@ export default function DeleteButton({ deleteItem }) {
 }
 
 const Button = styled.button`
-background-color: red;
-border: none;
-padding: 0px 10px;
-font-size: 16px;
-margin:4em;
+  background-color: red;
+  border: none;
+  padding: 0px 10px;
+  font-size: 16px;
+  margin: 4em;
 `;

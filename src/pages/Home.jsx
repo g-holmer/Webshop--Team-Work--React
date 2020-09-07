@@ -12,9 +12,8 @@ export default function Home() {
 }
 
 const Title = styled.div`
-display: flex;
-flex-direction: column;
-flex-wrap:wrap;
-align-items:center;
-
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
 `;

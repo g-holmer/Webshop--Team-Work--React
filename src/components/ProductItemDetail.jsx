@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import AddToCartButton from "./AddToCartButton";
-// name={payload.name}
-// description={payload.description}
-// price={payload.price}
-// images={payload.images}
 
 export default function ProductItemDetail({
   name,
@@ -14,7 +10,6 @@ export default function ProductItemDetail({
   images,
   index,
 }) {
-  
   const [amount, setAmountValue] = useState(1);
 
   const selectFieldHandler = (event) => {

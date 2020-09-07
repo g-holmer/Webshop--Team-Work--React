@@ -5,16 +5,10 @@ import AddToCartButton from "./AddToCartButton";
 import styled from "styled-components";
 
 export default function ProductItemInfo({ match }) {
-  //   const { productItems } = useContext(ProductContext);
   const productId = match && match.params.id;
   const [product, setProduct] = useState({});
   const [productReviewsData, setProductReviewsData] = useState({});
-
-  //   console.log(match);
-  //   const name = productItems[Object.keys(productItems)[productIndex]].name;
-  //   const description =
-  //     productItems[Object.keys(productItems)[productIndex]].description;
-  //   const images = productItems[Object.keys(productItems)[productIndex]].images;
+  
   const baseURL = "https://mock-data-api.firebaseio.com/e-commerce";
   const productReviews = baseURL + `/reviews/${productId}.json`;
   const productDetail = baseURL + `/products/${productId}.json`;
@@ -58,7 +52,7 @@ export default function ProductItemInfo({ match }) {
 
       return (
         <Reviewwrapper>
-            <li>{date}</li>
+          <li>{date}</li>
           <li>{author}</li>
           <li>{title}</li>
           <li>{description}</li>
@@ -82,7 +76,7 @@ export default function ProductItemInfo({ match }) {
             price={productPrice}
             images={image}
             id={productId}
-            amount ={1}
+            amount={1}
           />
         </ProductInfoWrapper>
       </ProductWrapper>
@@ -137,4 +131,3 @@ const Reviewwrapper = styled.div`
     margin-bottom: 1em;
   }
 `;
-

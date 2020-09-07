@@ -29,7 +29,7 @@ export default function CartPage() {
       const itemAmount = item.amount;
       const itemImage = item.images;
       const key = window.localStorage.key(index);
-      console.log(itemAmount);
+      
       return (
         <GetCartItems
           itemName={itemName}
@@ -41,7 +41,6 @@ export default function CartPage() {
         />
       );
     });
-
 
   function getTotalSum() {
     let sum = 0;
@@ -65,7 +64,7 @@ export default function CartPage() {
         <p>Total: {getTotalSum()} $</p>
       </Sum>
     );
-    renderOrder = <Order totalSum={getTotalSum()}/>;
+    renderOrder = <Order totalSum={getTotalSum()} />;
     renderDeleteAllButton = (
       <button onClick={deleteAllItemsHandler}>Delete All items</button>
     );

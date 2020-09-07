@@ -5,11 +5,7 @@ import styled from "styled-components";
 import { useState } from "react";
 
 const baseURL = "https://mock-data-api.firebaseio.com/e-commerce";
-
 const productList = baseURL + "/products.json";
-// const productDetail = baseURL + "/products/{productId}.json";
-// const productReviews = baseURL + "/reviews/{productId}.json";
-// const couponCodes = baseURL + "/couponCodes/{couponCodes}.json";
 
 export default function ProductList() {
   const [productItems, setProductItems] = useState({});
@@ -24,7 +20,6 @@ export default function ProductList() {
 
   useEffect(() => {
     fetchProductList();
-
     // eslint-disable-next-line
   }, []);
 
