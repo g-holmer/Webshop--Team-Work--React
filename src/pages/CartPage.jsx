@@ -57,14 +57,20 @@ export default function CartPage() {
   useEffect(() => {
     getItemFromLocalStorage();
   }, []);
+  
   let renderOrder = null;
-  let renderSum = null;
+  let renderSum = null;   
+  let renderDeleteAllButton = null;
+
   if (localStorage.length) {
     renderSum = getTotalSum();
     renderOrder = <Order />;
+    renderDeleteAllButton = <button onClick = {deleteAllItemsHandler}>Delete All items</button>
+    ;
   } else {
     renderOrder = "";
     renderSum = "";
+    renderDeleteAllButton = "";
   }
 
   function deleteAllItemsHandler() {
@@ -78,7 +84,7 @@ export default function CartPage() {
       <h1 style={{ alignSelf: "center" }}>Your cart!</h1>
 
       <CartItems>{productsToRender}</CartItems>
-<button onClick = {deleteAllItemsHandler}>Delete All items</button>
+      {renderDeleteAllButton}
       {renderSum}
       {renderOrder}
     </Cart>
