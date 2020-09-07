@@ -66,7 +66,7 @@ export default function CartPage() {
     );
     renderOrder = <Order totalSum={getTotalSum()} />;
     renderDeleteAllButton = (
-      <button onClick={deleteAllItemsHandler}>Delete All items</button>
+      <button onClick={deleteAllItemsHandler}>Delete all</button>
     );
   } else {
     renderOrder = "";
@@ -84,7 +84,7 @@ export default function CartPage() {
       <h1 style={{ alignSelf: "center" }}>Your cart!</h1>
 
       <CartItems>{productsToRender}</CartItems>
-      {renderDeleteAllButton}
+      <DeleteAllButton>{renderDeleteAllButton}</DeleteAllButton>
       {renderSum}
       {renderOrder}
     </Cart>
@@ -99,7 +99,6 @@ const Cart = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  flex-wrap: wrap;
   min-height: 100vh;
 `;
 
@@ -111,5 +110,20 @@ const Sum = styled.div`
     border-radius: 50px;
     text-transform: uppercase;
     font-size: 30px;
+  }
+`;
+
+const DeleteAllButton = styled.div`
+  display: flex;
+  justify-content: center;
+  button {
+    background-color: red;
+    border: none;
+    padding: 16px 32px;
+    font-size: 16px;
+    border-radius: 12px;
+    margin: 1em;
+    cursor: pointer;
+    text-transform: uppercase;
   }
 `;

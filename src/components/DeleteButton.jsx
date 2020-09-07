@@ -10,5 +10,5 @@ const Button = styled.button`
   border: none;
   padding: 0px 10px;
   font-size: 16px;
-  margin: 4em;
+  margin: 5em;
 `;
