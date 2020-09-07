@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export default function Order() {
+export default function Order({totalSum}) {
   const [inputValue, setInputValue] = useState("asd");
   const uniqueId = Date.now();
 
@@ -13,8 +13,8 @@ export default function Order() {
     <OrderForm>
       <p>Name:</p>
       <input onChange={inputFieldHandler} type="text" />
-      <Link to={`/order/${uniqueId}/name/${inputValue}`}>
-        <button>Place Order</button>
+<Link to={`/order/${uniqueId}/name/${inputValue}/sum/${totalSum}`}>       
+ <button>Place Order</button>
       </Link>
     </OrderForm>
   );

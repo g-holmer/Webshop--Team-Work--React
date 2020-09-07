@@ -65,7 +65,7 @@ export default function CartPage() {
         <p>Total: {getTotalSum()} $</p>
       </Sum>
     );
-    renderOrder = <Order />;
+    renderOrder = <Order totalSum={getTotalSum()}/>;
     renderDeleteAllButton = (
       <button onClick={deleteAllItemsHandler}>Delete All items</button>
     );

@@ -6,6 +6,7 @@ const orders = baseURL + "/orders/grupp-6.json";
 export default function OrderConfirmation(props) {
   const userName = props.match.params.name;
   const orderId = props.match.params.id;
+  const totalSum = props.match.params.sum;
 
   const getItemFromLocalStorage = () => {
     const allProducts = [];
@@ -37,6 +38,7 @@ export default function OrderConfirmation(props) {
       id: orderId,
       products: prodList,
       username: userName,
+      totalCost: totalSum,
     };
 
     const url = orders;

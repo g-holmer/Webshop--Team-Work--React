@@ -24,7 +24,7 @@ function App() {
           <Route path="/cart" component={CartPage} />
           <Route path="/product/:id" exact component={ProductItemInfo} />
           <Route
-            path="/order/:id/name/:name"
+            path="/order/:id/name/:name/sum/:sum"
             exact
             component={OrderConfirmation}
           />
